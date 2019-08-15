@@ -16,12 +16,6 @@ namespace PixelsToolbelt;
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// TEMP: global vars to check for (set in config/application)
-// - Google API Key
-// - project slug
-// - plugin slug
-// - theme slug
-
 /**
  * The list of files to include.
  * @var array
