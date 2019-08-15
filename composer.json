@@ -1,0 +1,26 @@
+{
+    "name": "pixelshelsinki/pixels-toolbelt",
+    "description": "A plugin to handle common code for Pixels Helsinki projects.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Pixels Helsinki Oy",
+            "email": "hello@pixels.fi"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "composer/installers": "^1.7"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.4",
+        "wp-coding-standards/wpcs": "^2.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+    },
+    "scripts": {
+      "test": [
+        "phpcs"
+      ]
+    }
+}
