@@ -29,7 +29,7 @@ function project_plugin_slug_not_set() {
 function google_api_key_not_set() {
   ?>
   <div class="notice notice-error">
-    <p><?php _e( 'The <code>GOOGLE_API_KEY</code> global variable is not set! Please set the slug for this project\'s plugin by adding <code>define(\'GOOGLE_API_KEY\', \'{Google API Key}\');</code> to <code>config/application.php</code>. If you do not need a Google API key for this project, set the value of <code>GOOGLE_API_KEY</code> to <code>false</code>', 'pixels-toolbelt' ); ?></p>
+    <p><?php _e( 'The <code>GOOGLE_API_KEY</code> global variable is not set! Please set the slug for this project\'s plugin in the env file by adding <code>GOOGLE_API_KEY={Google API Key}</code> to the <code>.env</code>. If you do not need a Google API key for this project, set the value of <code>GOOGLE_API_KEY</code> to <code>false</code>', 'pixels-toolbelt' ); ?></p>
   </div>
   <?php
 }
