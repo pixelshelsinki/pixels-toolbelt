@@ -3,7 +3,7 @@
  * Modifications for the Yoast plugin.
  */
 
-namespace PixelsToolbelt\Modifications\Yoast;
+namespace PTB\Modifications\Yoast;
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;

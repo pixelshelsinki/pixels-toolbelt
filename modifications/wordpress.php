@@ -3,7 +3,7 @@
  * Modifications for WordPress.
  */
 
-namespace PixelsToolbelt\Modifications\WordPress;
+namespace PTB\Modifications\WordPress;
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;

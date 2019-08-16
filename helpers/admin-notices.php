@@ -3,7 +3,7 @@
  * Checks that required variables are set in the correct way.
  */
 
-namespace PixelsToolbelt\Helpers\AdminNotices;
+namespace PTB\Helpers\AdminNotices;
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;

@@ -3,8 +3,8 @@
  * Modifications for the ACF plugin.
  */
 
-namespace PixelsToolbelt\Modifications\ACF;
-use PixelsToolbelt\Helpers\AdminNotices;
+namespace PTB\Modifications\ACF;
+use PTB\Helpers\AdminNotices;
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -22,7 +22,7 @@ function hide_admin_menu_on_production( $show ) {
 
 	return $show;
 }
-add_filter('acf/settings/show_admin', 'hide_admin_menu_on_production');
+add_filter( 'acf/settings/show_admin', __NAMESPACE__ . '\\hide_admin_menu_on_production' );
 
 /**
  * Exposes a Google API key to ACF so that the Google Maps field works in the

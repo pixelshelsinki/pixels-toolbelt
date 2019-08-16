@@ -11,7 +11,7 @@
  * @package         Pixels_Toolbelt
  */
 
-namespace PixelsToolbelt;
+namespace PTB;
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -20,18 +20,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * The list of files to include.
  * @var array
  */
-$includes = [
+$ptb_includes = [
 	'helpers/admin-notices.php',
 	'modifications/acf.php',
 	'modifications/seo-framework.php',
 	'modifications/wordpress.php',
-	'modifications/wordpress.php',
+	'modifications/yoast.php',
 ];
 
-foreach ( $includes as $file ) {
-	if ( ! $filepath = plugin_dir_path(__FILE__) . $file ) {
-		trigger_error( sprintf( __( 'Error locating %s for inclusion', 'pixels-toolbelt' ), $file ), E_USER_ERROR );
+foreach ( $ptb_includes as $ptb_file ) {
+	if ( ! $ptb_filepath = plugin_dir_path(__FILE__) . $ptb_file ) {
+		/* Translators: %s is the name of the file that cannot be located */
+		trigger_error( sprintf( __( 'Error locating %s for inclusion', 'pixels-toolbelt' ), $ptb_file ), E_USER_ERROR );
 	}
-	require_once $filepath;
+	require_once $ptb_filepath;
 }
-unset( $file, $filepath );
+unset( $ptb_file, $ptb_filepath );

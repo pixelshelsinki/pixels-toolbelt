@@ -3,7 +3,7 @@
  * Modifications for the SEO Framework plugin.
  */
 
-namespace PixelsToolbelt\Modifications\SEOFramework;
+namespace PTB\Modifications\SEOFramework;
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
