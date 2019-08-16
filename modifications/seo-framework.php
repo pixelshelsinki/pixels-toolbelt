@@ -14,6 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @return string The metabox priority.
  */
 function move_post_metabox_to_end() {
- 	return 'default';
+ 	return 'low';
 }
 add_filter( 'the_seo_framework_metabox_priority', __NAMESPACE__ . '\\move_post_metabox_to_end' );
