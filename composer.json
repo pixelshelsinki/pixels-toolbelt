@@ -1,7 +1,7 @@
 {
     "name": "pixelshelsinki/pixels-toolbelt",
     "description": "A plugin to handle common code for Pixels Helsinki projects.",
-    "type": "wordpress-plugin",
+    "type": "wordpress-muplugin",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=5.6.4",
+        "php": ">=7.1",
         "composer/installers": "^1.0"
     },
     "require-dev": {
