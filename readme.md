@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pixelshelsinki/pixels-toolbelt.svg?branch=master)](https://travis-ci.org/pixelshelsinki/pixels-toolbelt)
+
 # Pixels Toolbelt
 
 Pixels Toolbelt is a small must-use plugin for WordPress. It takes care of certain modifications and setups that are used in most Pixels Helsinki Projects, but may be useful for other developers in their own projects.
