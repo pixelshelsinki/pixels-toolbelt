@@ -37,7 +37,7 @@ function add_google_api_key_for_acf() {
 		add_action( 'admin_notices', 'AdminNotices\\google_api_key_not_set' );
 	}
 }
-add_action( 'acf/init', 'add_google_api_key_for_acf' );
+add_action( 'acf/init', __NAMESPACE__ . '\\add_google_api_key_for_acf' );
 
 /**
  * Set the location where ACF saves JSON files.
