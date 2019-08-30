@@ -47,9 +47,9 @@ add_action( 'acf/init', __NAMESPACE__ . '\\add_google_api_key_for_acf' );
  * @return string       New path to json save point.
  */
 function acf_json_save_point( $path ) {
-	if ( defined( 'PIX_PROJECT_PLUGIN_SLUG' ) ) {
-    	$new_path = plugin_dir_path( dirname( dirname(__FILE__) ) ) . 'acf-json';
-    	$new_path = str_replace( 'pixels-toolbelt', PIX_PROJECT_PLUGIN_SLUG, $new_path );
+	if ( defined( 'PIX_PROJECT_PLUGIN_SLUG' ) && defined( 'WP_PLUGIN_DIR' ) ) {
+		// Note we use WP_PLUGIN_DIR as it is the easiest way to construct this.
+    	$new_path = WP_PLUGIN_DIR . '/' . PIX_PROJECT_PLUGIN_SLUG . '/acf-json/';
 
     	$path = $new_path;
  	} else {
@@ -69,9 +69,9 @@ add_filter( 'acf/settings/save_json', __NAMESPACE__ . '\\acf_json_save_point' );
  * @return array         Modified array of paths to load points.
  */
 function acf_json_load_point( $paths ) {
-    if ( defined( 'PIX_PROJECT_PLUGIN_SLUG' ) ) {
-		$new_path = plugin_dir_path( dirname( dirname( __FILE__) ) ) . 'acf-json';
-		$new_path = str_replace( 'pixels-toolbelt', PIX_PROJECT_PLUGIN_SLUG, $new_path );
+    if ( defined( 'PIX_PROJECT_PLUGIN_SLUG' ) && defined( 'WP_PLUGIN_DIR' ) ) {
+		// Note we use WP_PLUGIN_DIR as it is the easiest way to construct this.
+		$new_path = WP_PLUGIN_DIR . '/' . PIX_PROJECT_PLUGIN_SLUG . '/acf-json/';
 
 		$paths[] = $new_path;
     } else {
