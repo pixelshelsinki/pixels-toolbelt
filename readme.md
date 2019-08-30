@@ -36,7 +36,7 @@ Add the following to your array of repositories in your composer.json file:
 
 Then add the following to your `require` array:
 
-`"pixelshelsinki/pixels-toolbelt": "^1.0.2"`
+`"pixelshelsinki/pixels-toolbelt": "^1.0.3"`
 
 Then run `composer update`
 

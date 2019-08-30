@@ -6,7 +6,7 @@
  * Author URI:      https://pixels.fi/
  * Text Domain:     pixels-toolbelt
  * Domain Path:     /languages
- * Version:         1.0.2
+ * Version:         1.0.3
  *
  * @package         Pixels_Toolbelt
  */
