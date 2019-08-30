@@ -4,7 +4,6 @@
  */
 
 namespace PTB\Modifications\ACF;
-use PTB\Helpers\AdminNotices;
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -34,7 +33,7 @@ function add_google_api_key_for_acf() {
 	if ( defined( 'GOOGLE_API_KEY' ) ) {
 		acf_update_setting( 'google_api_key', GOOGLE_API_KEY );
 	} else {
-		add_action( 'admin_notices', 'AdminNotices\\google_api_key_not_set' );
+		add_action( 'admin_notices', '\\PTB\\Helpers\\AdminNotices\\google_api_key_not_set' );
 	}
 }
 add_action( 'acf/init', __NAMESPACE__ . '\\add_google_api_key_for_acf' );
@@ -54,7 +53,7 @@ function acf_json_save_point( $path ) {
 
     	$path = $new_path;
  	} else {
-		add_action( 'admin_notices', 'AdminNotices\\project_plugin_slug_not_set' );
+		add_action( 'admin_notices', '\\PTB\\Helpers\\AdminNotices\\project_plugin_slug_not_set' );
 	}
 
  	return $path;
@@ -76,7 +75,7 @@ function acf_json_load_point( $paths ) {
 
 		$paths[] = $new_path;
     } else {
-		add_action( 'admin_notices', 'AdminNotices\\project_plugin_slug_not_set' );
+		add_action( 'admin_notices', '\\PTB\\Helpers\\AdminNotices\\project_plugin_slug_not_set' );
 	}
 
     return $paths;

@@ -33,7 +33,3 @@ function google_api_key_not_set() {
   </div>
   <?php
 }
-// If the project plugin slug is not set, then display the above notice.
-if ( !defined( 'PIX_PROJECT_PLUGIN_SLUG' ) ) {
-  add_action( 'admin_notices', __NAMESPACE__ . '\\admin_notice_project_slug_not_set' );
-}
