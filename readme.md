@@ -25,18 +25,20 @@ Download the zip and upload to your MU plugins directory. Note you will need to 
 
 ### Composer
 
-Add the following to your array of repositories in your composer.json file:
+Install via composer and Pixels Packages. Add the following to your array of repositories in your composer.json file if not already there:
 
 ```
 {
-  "url": "https://github.com/pixelshelsinki/pixels-toolbelt.git",
-  "type": "git"
+  "type": "composer",
+		"url": "https://packages.pixels.fi/satispress/"
 }
 ```
 
 Then add the following to your `require` array:
 
-`"pixelshelsinki/pixels-toolbelt": "^1.0.3"`
+`"pixels-packages/pixels-toolbelt": "^1.0.3"`
+
+Then under "extra" > "installer-paths" > "web/app/mu-plugins/{$name}/" add "pixels-packages/pixelstoolbelt" to the array.
 
 Then run `composer update`
 
