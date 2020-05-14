@@ -20,3 +20,12 @@ function allow_svg_upload( $mimes ) {
 	return $mimes;
 }
 add_filter( 'upload_mimes', __NAMESPACE__ . '\\allow_svg_upload' );
+
+function disable_not_applicable_site_health_checks( $tests ) {
+	if ( ! empty( AUTOMATIC_UPDATER_DISABLED ) ) {
+		unset( $tests['async']['background_updates'] );
+	}
+	
+    return $tests;
+}
+add_filter( 'site_status_tests', __NAMESPACE__ . '\\disable_not_applicable_site_health_checks' );
