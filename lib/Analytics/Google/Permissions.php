@@ -40,6 +40,13 @@ class Permissions implements PermissionInterface {
 	public $is_production;
 
 	/**
+	 * Is "allowed" -> no GDPR / similar block.
+	 *
+	 * @var bool.
+	 */
+	public $is_allowed;
+
+	/**
 	 * Tracking ID from settings.
 	 *
 	 * @var string.
@@ -53,6 +60,7 @@ class Permissions implements PermissionInterface {
 		$this->settings      = $settings; 
 		$this->is_enabled    = $this->check_settings();
 		$this->is_production = $this->check_environment();
+		$this->is_allowed    = $this->check_consent();
 	}
 
 	/**
@@ -86,7 +94,14 @@ class Permissions implements PermissionInterface {
 		endif;
 
 		return $enabled;
-	}	
+	}
+
+	/**
+	 * Check global consent.
+	 */
+	public function check_consent() : bool {
+		return apply_filters( 'pixels_tracking', true );
+	}
 
 	/**
 	 * Check if we can use analytics.
@@ -98,7 +113,8 @@ class Permissions implements PermissionInterface {
 		$has_permission = false;
 
 		if( $this->is_enabled &&
-			$this->is_production
+			$this->is_production &&
+			$this->is_allowed
 		) :
 			$has_permission = true;
 		endif;
