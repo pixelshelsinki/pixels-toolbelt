@@ -31,13 +31,34 @@ class GoogleAnalytics {
 		
 	}
 
+	/**
+	 * Ensure we are within our rights to use Analytics.
+	 */
 	public function maybe_add_google_analytics() {
 		$this->permissions = new GAPermissions();
 
 		if( $this->permissions->has_permission() ) :
-			var_dump( 'yes' );
-		else:
-			var_dump( 'no' );
+			add_action( 'wp_head', array( $this, 'add_ga_script' ) );
 		endif;
+	}
+
+	/**
+	 * Add GA tracking code & JS library to DOM.
+	 */
+	public function add_ga_script() {
+		?>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $this->permissions->tracking_id ?>"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', '<?php echo $this->permissions->tracking_id ?>');
+		</script>
+
+
+		<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+		<?php
 	}
 }

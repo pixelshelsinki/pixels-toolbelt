@@ -30,6 +30,13 @@ class GAPermissions {
 	public $is_production;
 
 	/**
+	 * Tracking ID from settings.
+	 *
+	 * @var string.
+	 */
+	public $tracking_id;
+
+	/**
 	 * Class constructor.
 	 */
 	public function __construct() {
@@ -51,6 +58,7 @@ class GAPermissions {
 
 			if ( array_key_exists( 'disabled', $settings ) && $settings['disabled'] !=true ) :
 				if ( array_key_exists( 'tracking_id', $settings ) && $settings['tracking_id'] !== "" ) :
+					$this->tracking_id = $settings['tracking_id'];
 					$enabled = true;
 				endif;
 			endif;
