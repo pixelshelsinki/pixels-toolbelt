@@ -24,6 +24,7 @@ class Notices {
 	 */
 	const NOTICE_CLASSES = array(
 		'GoogleAnalytics',
+		'GoogleTagManager',
 	);
 
 	/**
