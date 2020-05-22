@@ -16,6 +16,9 @@ namespace PTB;
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+// Composer autoload.
+require_once __DIR__ . '/vendor/autoload.php';
+
 /**
  * The list of files to include.
  * @var array
