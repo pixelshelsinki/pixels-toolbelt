@@ -10,7 +10,7 @@ namespace Pixels\Toolbelt\Analytics\Contracts;
 /**
  * Define is analytics permission is given.
  */
-class PermissionIntercace {
+interface PermissionInterface {
 
 	public function has_permission() : bool;
 }
