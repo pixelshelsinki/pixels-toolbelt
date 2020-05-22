@@ -13,7 +13,14 @@ use \Pixels\Toolbelt\Analytics\Contracts\PermissionInterface;
 /**
  * Ensures we're within our rights to add GA.
  */
-class GAPermissions {
+class GAPermissions implements PermissionInterface {
+
+	/**
+	 * GA settings instance.
+	 *
+	 * @var GASettings
+	 */
+	public $settings;
 
 	/**
 	 * Is enabled in settings.
@@ -39,7 +46,8 @@ class GAPermissions {
 	/**
 	 * Class constructor.
 	 */
-	public function __construct() {
+	public function __construct( $settings ) {
+		$this->settings      = $settings; 
 		$this->is_enabled    = $this->check_settings();
 		$this->is_production = $this->check_environment();
 	}
@@ -50,19 +58,14 @@ class GAPermissions {
 	 * @return bool $enabled status.
 	 */
 	public function check_settings() : bool {
-		$enabled = false;
+		$enabled = false;		
 
-		$settings = \get_field( 'ptb_google_analytics', 'option' );
-
-		if( $settings ):
-
-			if ( array_key_exists( 'disabled', $settings ) && $settings['disabled'] !=true ) :
-				if ( array_key_exists( 'tracking_id', $settings ) && $settings['tracking_id'] !== "" ) :
-					$this->tracking_id = $settings['tracking_id'];
-					$enabled = true;
-				endif;
-			endif;
+		if ( $this->settings->is_enabled == true &&
+			$this->settings->tracking_id !== ""
+		) :
+			$enabled = true;
 		endif;
+		
 
 		return $enabled;
 	}
