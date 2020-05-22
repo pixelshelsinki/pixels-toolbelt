@@ -15,6 +15,7 @@
 namespace PTB;
 
 use \Pixels\Toolbelt\ACF\Loadpoints;
+use \Pixels\Toolbelt\ACF\OptionsPages;
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -26,7 +27,8 @@ require_once __DIR__ . '/vendor/autoload.php';
  * Init class based components.
  * TODO: move the whole bootstrap to class based.
  */
-$loadpoints = new Loadpoints();
+$loadpoints    = new Loadpoints();
+$options_pages = new OptionsPages();
 
 /**
  * The list of files to include.
