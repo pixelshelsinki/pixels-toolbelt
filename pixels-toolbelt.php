@@ -11,13 +11,22 @@
  * @package         Pixels_Toolbelt
  */
 
+// TODO: Change to fully qualified namespace.
 namespace PTB;
+
+use \Pixels\Toolbelt\ACF\Loadpoints;
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Composer autoload.
 require_once __DIR__ . '/vendor/autoload.php';
+
+/**
+ * Init class based components.
+ * TODO: move the whole bootstrap to class based.
+ */
+$loadpoints = new Loadpoints();
 
 /**
  * The list of files to include.
