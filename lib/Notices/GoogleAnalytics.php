@@ -11,7 +11,7 @@ namespace Pixels\Toolbelt\Notices;
 use \Pixels\Toolbelt\Notices\Contracts\AbstractNotice;
 
 // Services.
-use \Pixels\Toolbelt\Analytics\Google\GASettings;
+use \Pixels\Toolbelt\Analytics\Google\Settings\GASettings;
 
 
 if ( ! defined( 'ABSPATH' ) ) {

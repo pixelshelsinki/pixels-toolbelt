@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for checking GA permissions
+ * Class for checking GA/GTM permissions
  *
  * @package Toolbelt.
  */
@@ -10,15 +10,18 @@ namespace Pixels\Toolbelt\Analytics\Google;
 // Contracts.
 use \Pixels\Toolbelt\Analytics\Contracts\PermissionInterface;
 
+// Settings.
+use \Pixels\Toolbelt\Analytics\Google\Settings\AbstractTrackingSettings;
+
 /**
- * Ensures we're within our rights to add GA.
+ * Ensures we're within our rights to add GTM.
  */
-class GAPermissions implements PermissionInterface {
+class Permissions implements PermissionInterface {
 
 	/**
-	 * GA settings instance.
+	 * Settings instance.
 	 *
-	 * @var GASettings
+	 * @var GTMSettings
 	 */
 	public $settings;
 
@@ -46,7 +49,7 @@ class GAPermissions implements PermissionInterface {
 	/**
 	 * Class constructor.
 	 */
-	public function __construct( $settings ) {
+	public function __construct( AbstractTrackingSettings $settings ) {
 		$this->settings      = $settings; 
 		$this->is_enabled    = $this->check_settings();
 		$this->is_production = $this->check_environment();

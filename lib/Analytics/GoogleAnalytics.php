@@ -7,8 +7,8 @@
 
 namespace Pixels\Toolbelt\Analytics;
 
-use \Pixels\Toolbelt\Analytics\Google\GAPermissions;
-use \Pixels\Toolbelt\Analytics\Google\GASettings;
+use \Pixels\Toolbelt\Analytics\Google\Permissions;
+use \Pixels\Toolbelt\Analytics\Google\Settings\GASettings;
 
 /**
  * --> Output Google Analytics js.
@@ -44,7 +44,7 @@ class GoogleAnalytics {
 	 */
 	public function maybe_add_google_analytics() {
 		$this->settings    = new GASettings();
-		$this->permissions = new GAPermissions( $this->settings );
+		$this->permissions = new Permissions( $this->settings );
 
 		if( $this->permissions->has_permission() ) :
 			add_action( 'wp_head', array( $this, 'add_ga_script' ) );
