@@ -16,6 +16,7 @@ namespace PTB;
 
 use \Pixels\Toolbelt\ACF\Loadpoints;
 use \Pixels\Toolbelt\ACF\OptionsPages;
+use \Pixels\Toolbelt\Analytics\GoogleAnalytics;
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -29,6 +30,7 @@ require_once __DIR__ . '/vendor/autoload.php';
  */
 $loadpoints    = new Loadpoints();
 $options_pages = new OptionsPages();
+$ga            = new GoogleAnalytics();
 
 /**
  * The list of files to include.
