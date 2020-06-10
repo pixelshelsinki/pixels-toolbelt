@@ -28,7 +28,7 @@ abstract class AbstractTrackingSettings implements SettingsInterface {
 	 *
 	 * @var string.
 	 */
-	public $tracking_id = "";
+	public $tracking_id = '';
 
 	/**
 	 * Class constructor.
@@ -55,16 +55,15 @@ abstract class AbstractTrackingSettings implements SettingsInterface {
 		$settings = \get_field( $this->get_settings_key(), 'option' );
 
 		return $settings;
-	}	
-	
+	}
+
 	/**
 	 * Populate props from settings.
 	 */
 	public function populate_settings() {
 		$settings = $this->get_settings();
 
-		if( $settings ):
-
+		if ( $settings ) :
 			if ( array_key_exists( 'disabled', $settings ) ) :
 				$this->is_enabled = ! $settings['disabled'];
 			endif;
@@ -72,7 +71,6 @@ abstract class AbstractTrackingSettings implements SettingsInterface {
 			if ( array_key_exists( 'tracking_id', $settings ) ) :
 				$this->tracking_id = $settings['tracking_id'];
 			endif;
-				
 		endif;
-	}	
+	}
 }

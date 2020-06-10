@@ -57,7 +57,7 @@ class Permissions implements PermissionInterface {
 	 * Class constructor.
 	 */
 	public function __construct( AbstractTrackingSettings $settings ) {
-		$this->settings      = $settings; 
+		$this->settings      = $settings;
 		$this->is_enabled    = $this->check_settings();
 		$this->is_production = $this->check_environment();
 		$this->is_allowed    = $this->check_consent();
@@ -69,14 +69,13 @@ class Permissions implements PermissionInterface {
 	 * @return bool $enabled status.
 	 */
 	public function check_settings() : bool {
-		$enabled = false;		
+		$enabled = false;
 
 		if ( $this->settings->is_enabled == true &&
-			$this->settings->tracking_id !== ""
+			$this->settings->tracking_id !== ''
 		) :
 			$enabled = true;
 		endif;
-		
 
 		return $enabled;
 	}
@@ -89,7 +88,7 @@ class Permissions implements PermissionInterface {
 	public function check_environment() : bool {
 		$enabled = false;
 
-		if ( ( ! defined('WP_ENV') || \WP_ENV === 'production') && !current_user_can('manage_options') ) :
+		if ( ( ! defined( 'WP_ENV' ) || \WP_ENV === 'production' ) && ! current_user_can( 'manage_options' ) ) :
 			$enabled = true;
 		endif;
 
@@ -112,7 +111,7 @@ class Permissions implements PermissionInterface {
 	public function has_permission() : bool {
 		$has_permission = false;
 
-		if( $this->is_enabled &&
+		if ( $this->is_enabled &&
 			$this->is_production &&
 			$this->is_allowed
 		) :

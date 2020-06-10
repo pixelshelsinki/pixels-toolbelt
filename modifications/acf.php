@@ -6,7 +6,9 @@
 namespace PTB\Modifications\ACF;
 
 // exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Hides the ACF admin menu on any environment other than development.
@@ -49,14 +51,14 @@ add_action( 'acf/init', __NAMESPACE__ . '\\add_google_api_key_for_acf' );
 function acf_json_save_point( $path ) {
 	if ( defined( 'PIX_PROJECT_PLUGIN_SLUG' ) && defined( 'WP_PLUGIN_DIR' ) ) {
 		// Note we use WP_PLUGIN_DIR as it is the easiest way to construct this.
-    	$new_path = WP_PLUGIN_DIR . '/' . PIX_PROJECT_PLUGIN_SLUG . '/acf-json/';
+		$new_path = WP_PLUGIN_DIR . '/' . PIX_PROJECT_PLUGIN_SLUG . '/acf-json/';
 
-    	$path = $new_path;
- 	} else {
+		$path = $new_path;
+	} else {
 		add_action( 'admin_notices', '\\PTB\\Helpers\\AdminNotices\\project_plugin_slug_not_set' );
 	}
 
- 	return $path;
+	return $path;
 }
 add_filter( 'acf/settings/save_json', __NAMESPACE__ . '\\acf_json_save_point' );
 
@@ -69,16 +71,16 @@ add_filter( 'acf/settings/save_json', __NAMESPACE__ . '\\acf_json_save_point' );
  * @return array         Modified array of paths to load points.
  */
 function acf_json_load_point( $paths ) {
-    if ( defined( 'PIX_PROJECT_PLUGIN_SLUG' ) && defined( 'WP_PLUGIN_DIR' ) ) {
+	if ( defined( 'PIX_PROJECT_PLUGIN_SLUG' ) && defined( 'WP_PLUGIN_DIR' ) ) {
 		// Note we use WP_PLUGIN_DIR as it is the easiest way to construct this.
 		$new_path = WP_PLUGIN_DIR . '/' . PIX_PROJECT_PLUGIN_SLUG . '/acf-json/';
 
 		$paths[] = $new_path;
-    } else {
+	} else {
 		add_action( 'admin_notices', '\\PTB\\Helpers\\AdminNotices\\project_plugin_slug_not_set' );
 	}
 
-    return $paths;
+	return $paths;
 }
 add_filter( 'acf/settings/load_json', __NAMESPACE__ . '\\acf_json_load_point' );
 
@@ -89,7 +91,7 @@ add_filter( 'acf/settings/load_json', __NAMESPACE__ . '\\acf_json_load_point' );
  * @return string           Default language according to Polylang.
  */
 function acf_settings_default_language( $language ) {
-	if ( function_exists( 'pll_default_language') ) {
+	if ( function_exists( 'pll_default_language' ) ) {
 		$language = pll_default_language();
 	}
 
@@ -104,7 +106,7 @@ add_filter( 'acf/settings/default_language', __NAMESPACE__ . '\\acf_settings_def
  * @return string           Current language according to Polylang.
  */
 function acf_settings_current_language( $language ) {
-	if ( function_exists( 'pll_current_language') ) {
+	if ( function_exists( 'pll_current_language' ) ) {
 		$language = pll_current_language();
 	}
 

@@ -44,8 +44,8 @@ class GoogleAnalytics extends AbstractNotice {
 		$settings = new GASettings();
 
 		$options_set = !
-			$settings->is_enabled || 
-			($settings->is_enabled === true && $settings->tracking_id !== '');
+			$settings->is_enabled ||
+			( $settings->is_enabled === true && $settings->tracking_id !== '' );
 
 		return $options_set;
 	}

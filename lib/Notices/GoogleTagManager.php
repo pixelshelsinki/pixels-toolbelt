@@ -44,8 +44,8 @@ class GoogleTagManager extends AbstractNotice {
 		$settings = new GTMSettings();
 
 		$options_set = !
-			$settings->is_enabled || 
-			($settings->is_enabled === true && $settings->tracking_id !== '');
+			$settings->is_enabled ||
+			( $settings->is_enabled === true && $settings->tracking_id !== '' );
 
 		return $options_set;
 	}

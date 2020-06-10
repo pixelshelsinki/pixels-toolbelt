@@ -12,7 +12,7 @@ use \Pixels\Toolbelt\Analytics\Google\Settings\GASettings;
 
 /**
  * --> Output Google Analytics js.
- * --> Output Google Analytics property id. 
+ * --> Output Google Analytics property id.
  */
 class GoogleAnalytics {
 
@@ -34,9 +34,7 @@ class GoogleAnalytics {
 	 * Class constructor
 	 */
 	public function __construct() {
-
 		add_action( 'init', array( $this, 'maybe_add_google_analytics' ) );
-		
 	}
 
 	/**
@@ -46,7 +44,7 @@ class GoogleAnalytics {
 		$this->settings    = new GASettings();
 		$this->permissions = new Permissions( $this->settings );
 
-		if( $this->permissions->has_permission() ) :
+		if ( $this->permissions->has_permission() ) :
 			add_action( 'wp_head', array( $this, 'add_ga_script' ) );
 		endif;
 	}
@@ -57,13 +55,13 @@ class GoogleAnalytics {
 	public function add_ga_script() {
 		?>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $this->settings->tracking_id ?>"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $this->settings->tracking_id; ?>"></script>
 		<script>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
 
-		  gtag('config', '<?php echo $this->settings->tracking_id ?>');
+		  gtag('config', '<?php echo $this->settings->tracking_id; ?>');
 		</script>
 
 

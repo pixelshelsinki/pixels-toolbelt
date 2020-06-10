@@ -37,7 +37,6 @@ class OptionsPages {
 
 		// Load options pages.
 		$this->ga = new OptionsPages\GA();
-
 	}
 
 }

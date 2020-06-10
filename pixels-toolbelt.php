@@ -21,7 +21,9 @@ use \Pixels\Toolbelt\Analytics\GoogleTagManager;
 use \Pixels\Toolbelt\Notices;
 
 // exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // Composer autoload.
 require_once __DIR__ . '/vendor/autoload.php';
@@ -38,6 +40,7 @@ $notices       = new Notices();
 
 /**
  * The list of files to include.
+ *
  * @var array
  */
 $ptb_includes = [
@@ -49,7 +52,7 @@ $ptb_includes = [
 ];
 
 foreach ( $ptb_includes as $ptb_file ) {
-	if ( ! $ptb_filepath = plugin_dir_path(__FILE__) . $ptb_file ) {
+	if ( ! $ptb_filepath = plugin_dir_path( __FILE__ ) . $ptb_file ) {
 		/* Translators: %s is the name of the file that cannot be located */
 		trigger_error( sprintf( __( 'Error locating %s for inclusion', 'pixels-toolbelt' ), $ptb_file ), E_USER_ERROR );
 	}

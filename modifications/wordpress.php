@@ -6,7 +6,9 @@
 namespace PTB\Modifications\WordPress;
 
 // exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Add SVG to allow mimetypes.
@@ -15,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @return array         Newly allowed mimetypes.
  */
 function allow_svg_upload( $mimes ) {
- 	$mimes['svg'] = 'image/svg+xml';
+	$mimes['svg'] = 'image/svg+xml';
 
 	return $mimes;
 }
@@ -25,7 +27,7 @@ function disable_not_applicable_site_health_checks( $tests ) {
 	if ( ! empty( AUTOMATIC_UPDATER_DISABLED ) ) {
 		unset( $tests['async']['background_updates'] );
 	}
-	
-    return $tests;
+
+	return $tests;
 }
 add_filter( 'site_status_tests', __NAMESPACE__ . '\\disable_not_applicable_site_health_checks' );
