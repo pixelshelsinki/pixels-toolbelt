@@ -6,7 +6,9 @@
 namespace PTB\Modifications\SEOFramework;
 
 // exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Moves the SEO Framework SEO box to the end of the edit post page.
@@ -14,6 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @return string The metabox priority.
  */
 function move_post_metabox_to_end() {
- 	return 'low';
+	return 'low';
 }
 add_filter( 'the_seo_framework_metabox_priority', __NAMESPACE__ . '\\move_post_metabox_to_end' );

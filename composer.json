@@ -20,9 +20,17 @@
         "phpcompatibility/phpcompatibility-wp": "^2.0",
         "roave/security-advisories": "dev-master"
     },
+    "autoload": {
+        "psr-4": {
+          "Pixels\\Toolbelt\\": "lib/"
+        }
+      },
     "scripts": {
       "test": [
         "phpcs"
+      ],
+      "fix": [
+        "phpcbf -p -w"
       ]
     }
 }

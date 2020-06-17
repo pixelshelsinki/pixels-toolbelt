@@ -11,13 +11,36 @@
  * @package         Pixels_Toolbelt
  */
 
+// TODO: Change to fully qualified namespace.
 namespace PTB;
 
+use \Pixels\Toolbelt\ACF\Loadpoints;
+use \Pixels\Toolbelt\ACF\OptionsPages;
+use \Pixels\Toolbelt\Analytics\GoogleAnalytics;
+use \Pixels\Toolbelt\Analytics\GoogleTagManager;
+use \Pixels\Toolbelt\Notices;
+
 // exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// Composer autoload.
+require_once __DIR__ . '/vendor/autoload.php';
+
+/**
+ * Init class based components.
+ * TODO: move the whole bootstrap to class based.
+ */
+$loadpoints    = new Loadpoints();
+$options_pages = new OptionsPages();
+$ga            = new GoogleAnalytics();
+$gtm           = new GoogleTagManager();
+$notices       = new Notices();
 
 /**
  * The list of files to include.
+ *
  * @var array
  */
 $ptb_includes = [
@@ -29,7 +52,7 @@ $ptb_includes = [
 ];
 
 foreach ( $ptb_includes as $ptb_file ) {
-	if ( ! $ptb_filepath = plugin_dir_path(__FILE__) . $ptb_file ) {
+	if ( ! $ptb_filepath = plugin_dir_path( __FILE__ ) . $ptb_file ) {
 		/* Translators: %s is the name of the file that cannot be located */
 		trigger_error( sprintf( __( 'Error locating %s for inclusion', 'pixels-toolbelt' ), $ptb_file ), E_USER_ERROR );
 	}
