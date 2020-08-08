@@ -7,6 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Pixels\\Toolbelt\\' => array($baseDir . '/lib'),
-    'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => array($vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
 );

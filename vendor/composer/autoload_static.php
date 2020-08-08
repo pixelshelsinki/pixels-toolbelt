@@ -11,10 +11,6 @@ class ComposerStaticInite868d68a8c39c6f04ac8e8c3f200e763
         array (
             'Pixels\\Toolbelt\\' => 16,
         ),
-        'D' => 
-        array (
-            'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 55,
-        ),
         'C' => 
         array (
             'Composer\\Installers\\' => 20,
@@ -25,10 +21,6 @@ class ComposerStaticInite868d68a8c39c6f04ac8e8c3f200e763
         'Pixels\\Toolbelt\\' => 
         array (
             0 => __DIR__ . '/../..' . '/lib',
-        ),
-        'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
         ),
         'Composer\\Installers\\' => 
         array (
