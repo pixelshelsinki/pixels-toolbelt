@@ -44,6 +44,8 @@ add_action( 'acf/init', __NAMESPACE__ . '\\add_google_api_key_for_acf' );
  * Set the location where ACF saves JSON files.
  *
  * This requires the `PIX_PROJECT_PLUGIN_SLUG` to be set in `config/application.php`.
+ * 
+ * @todo consider removing this and making it part of the project plugin.
  *
  * @param  string $path Existing path to the json save point.
  * @return string       New path to json save point.
@@ -91,6 +93,10 @@ add_filter( 'acf/settings/load_json', __NAMESPACE__ . '\\acf_json_load_point' );
  * @return string           Default language according to Polylang.
  */
 function acf_settings_default_language( $language ) {
+	// Allow disabling this using filter hooks.
+	if ( apply_filters( 'ptb_disable_acf_pll_default_lang_fix', false ) ) {
+		return $language;
+	}
 	if ( function_exists( 'pll_default_language' ) ) {
 		$language = pll_default_language();
 	}
@@ -106,6 +112,11 @@ add_filter( 'acf/settings/default_language', __NAMESPACE__ . '\\acf_settings_def
  * @return string           Current language according to Polylang.
  */
 function acf_settings_current_language( $language ) {
+	// Allow disabling this using filter hooks.
+	if ( apply_filters( 'ptb_disable_acf_pll_current_lang_fix', false ) ) {
+		return $language;
+	}
+
 	if ( function_exists( 'pll_current_language' ) ) {
 		$language = pll_current_language();
 	}
